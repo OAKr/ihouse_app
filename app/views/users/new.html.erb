@@ -1,3 +1,28 @@
 <% provide(:title, 'Register') %>
-	<h1>Sign up</h1>
-	<p>Find me in app/views/users/new.html.erb</p>
+<h1>Sign up</h1>
+	<p class="text-align: center">Sign up for Interanationl House's Complaint platform to report maintainance issues and for details on ihouse activities</p>	
+	<div class="row">
+		<div class="span6 offset3">
+			<%= form_for(@user) do |f| %> <!-- @user defined in user_controller.rb as new user -->
+				<%= render 'shared/error_messages' %>
+
+				<%= f.label :name %>
+				<%= f.text_field :name %>
+
+				<%= f.label :email %>
+				<%= f.text_field :email %>
+
+				<%= f.label :password %>
+				<%= f.password_field :password %>
+
+				<%= f.label :password_confirmation, "Confirmation" %>
+				<%= f.password_field :password_confirmation %>
+
+				<%= f.submit "Create new account", class: "btn btn-large btn-primary" %> 
+			
+			<% end %>
+		</div>
+	</div>
+
+
+<p class="text-align: center">Edit in app/views/users/new.html.erb</p>	
