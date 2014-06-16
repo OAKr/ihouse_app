@@ -57,9 +57,9 @@ describe "Static pages" do
     expect(page).to have_title(full_title('Help'))
     click_link "Contacts"
     expect(page).to have_title(full_title('Contact us'))
-    click_link "Register"
-    expect(page).to have_title(full_title('Register'))
+    click_link "Sign in"
+    expect(page).to have_title(full_title('Sign in'))
     click_link "ihouse app"
-    expect(page).to have_title(full_title('About us'))
+    expect(page).to have_content('Sign in')
   end
 end

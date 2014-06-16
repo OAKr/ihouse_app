@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   def create
   	@user = User.new(user_params)
   	if  @user.save
+      sign_in @user
   		flash[:success] = "You have successfully created an account. Welcome to the ihouse complaint web platform!"
   		redirect_to @user
   	else

@@ -11,9 +11,11 @@ describe User do
 #things required from the user
   it {should respond_to(:name)}
   it {should respond_to(:email)}
+  it {should respond_to(:student_number)}
   it {should respond_to(:password_digest)} #must be password digest
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
+  it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
 
   it { should be_valid }
@@ -99,9 +101,9 @@ describe User do
   end
 
 #User Authentication
-    describe "return value of authenticate method" do
-      before { @user.save }
-      let(:found_user) { User.find_by(email: @user.email) }
+  describe "return value of authenticate method" do
+    before { @user.save }
+    let(:found_user) { User.find_by(email: @user.email) }
 
     describe "with valid password" do
       it { should eq found_user.authenticate(@user.password) }
@@ -118,5 +120,11 @@ describe User do
       before { @user.password = @user.password_confirmation = "a" * 5 }
       it { should be_invalid }
     end
+  end
+
+  # Checking that remember me token is not blank
+  describe "remember token" do
+    before { @user.save }
+    its(:remember_token) { should_not be_blank}
   end
 end

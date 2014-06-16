@@ -1,0 +1,22 @@
+<% provide(:title, 'Sign in') %>
+<h1>Sign in</h1>
+	
+<div class="row">
+	<div class="span6 offset3">
+		<!-- form_for(...) do |f| used for forms -->
+		<%= form_for(:session, url: sessions_path) do |f| %> <!--  define sessions_path in form_for-->
+
+			<%= f.label :email %>
+			<%= f.text_field :email %>
+
+			<%= f.label :password %>
+			<%= f.password_field :password %>
+
+			<%= f.submit "Sign in", class: "btn btn-large btn-primary"  %> 
+		
+		<% end %>
+	</div>
+</div>
+
+
+<p class="text-align: center">Edit in app/views/sessions/new.html.erb</p>	
